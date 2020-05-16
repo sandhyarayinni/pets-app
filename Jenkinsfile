@@ -18,7 +18,7 @@ pipeline{
           nexusUrl: 'http://35.157.129.91:8081', 
           nexusVersion: 'nexus3', 
           protocol: 'http',
-          repository: 'http://35.157.129.91:8081/repository/pets-app-snapshot/', 
+          repository: 'pets-app-snapshot', 
           version: '1.0-SNAPSHOT'
 	      
         
