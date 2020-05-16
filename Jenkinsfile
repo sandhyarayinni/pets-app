@@ -12,7 +12,7 @@ pipeline{
 		}
 	 stage("nexus deploy"){
        steps{
-	     nexusArtifactUploader artifacts: [[artifactId: 'pets-app', classifier: '', file: 'target/petsapp.war', type: 'war']],
+	     nexusArtifactUploader artifacts: [[artifactId: 'pets-app', classifier: '', file: 'target/pets-app.war', type: 'war']],
            credentialsId: 'nexus3', 
            groupId: 'in.javahome',
            nexusUrl: '35.157.129.91:8081',
