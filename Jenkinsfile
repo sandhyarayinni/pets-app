@@ -8,6 +8,7 @@ pipeline{
      stage("mvn3"){
      steps{
         sh label: '', script: 'mvn clean package'
+       
        stage("nexus deploy"){
          steps{
            nexusArtifactUploader artifacts: [[artifactId: 'pets-app', classifier: '', file: 'target/pets-app.war', type: 'war']],
