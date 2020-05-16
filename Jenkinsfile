@@ -8,6 +8,20 @@ pipeline{
      stage("mvn3"){
      steps{
         sh label: '', script: 'mvn clean package'
+       stage("nexus deploy"){
+         steps{
+           nexusArtifactUploader artifacts: [[artifactId: 'pets-app', classifier: '', file: 'target/pets-app.war', type: 'war']],
+                credentialsId: 'nexus3', 
+                groupId: 'in.javahome', 
+                nexusUrl: 'http://35.157.129.91:8081', 
+                nexusVersion: 'nexus3', 
+                protocol: 'http',
+                repository: 'http://35.157.129.91:8081/repository/pets-app-snapshot/', 
+                version: '1.0-SNAPSHOT'
+         }
+       }
+           
+           
    }
    }
    }
