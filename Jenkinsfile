@@ -27,6 +27,18 @@ pipeline{
         
 		}
 		}
+    stage("nexus deploy"){
+       steps{
+         sshagent(['tomcat8']) {
+    // cpoying war file to tomcat8
+    scp target/pets-app.war ec2-user@172.31.46.97:/opt/tomcat8/webapps/
+    ssh ec2-user@172.31.46.97 /opt/tomcat8/bin/shutdown.sh
+    ssh ec2-user@172.31.46.97 /opt/tomcat8/bin/startup.sh
+
+
+}
+       }
+    }
 		
 	 }       
    
