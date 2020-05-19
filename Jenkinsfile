@@ -29,7 +29,7 @@ pipeline{
         
 		}
 		}
-    stage("nexus deploy"){
+    stage("tomcat deploy"){
        steps{
          sshagent(['tomcat8']) {
     // cpoying war file to tomcat8
